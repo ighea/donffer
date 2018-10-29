@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.email         = ["mika.hynna@iki.fi"]
 
   spec.summary       = %q{Write changes to yaml files based on ENV prefixes.}
-  #spec.homepage      = "TODO: Put your gem's website or public repo URL here."
+  spec.homepage      = "https://github.com/ighea/donffer"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org. To allow pushes either set the 'allowed_push_host'
@@ -35,6 +35,6 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rake", "~> 10.0"
   spec.add_development_dependency "minitest", "~> 5.0"
 
-  spec.add_dependency "linguistics", "~> 2.1.0"
+  spec.add_dependency "activesupport", "~> 5.2.1"
   spec.add_dependency "optimist", "~> 3.0.0"
 end

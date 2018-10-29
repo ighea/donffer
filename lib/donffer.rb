@@ -2,7 +2,7 @@ require "donffer/version"
 
 require "yaml"
 require "optimist"
-require "linguistics"
+require "active_support/inflector"
 
 opts = Optimist::options do
   opt :file, "yaml config file name to modify", :type => :string
@@ -20,12 +20,11 @@ module Donffer
       create_new = opts[:create_new]
       verbose = opts[:verbose]
 
+      raise "ERR: File is mandatory. See donffer -h" if filename.nil?
       file_exists = File.exists?(filename)
 
       raise "ERR: #{filename} doesn't exists!" if !file_exists and create_new == false
       raise "ERR: Invalid env_prefix! env_prefix must be set!" if prefix.nil? or prefix.empty?
-
-      Linguistics.use( :en )
 
       data = {} 
       data = YAML.load(File.read(filename)) if file_exists
@@ -41,7 +40,7 @@ module Donffer
           end
 	end
 	
-	val = val.split(",") if attr.en.plural
+	val = val.split(",") if attr.pluralize == attr
 	# TODO support objects
 	
 	data[attr] = val
