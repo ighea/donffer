@@ -8,7 +8,7 @@ opts = Optimist::options do
   opt :file, "yaml config file name to modify", :type => :string
   opt :create_new, "Create a new file if doesn't exist", :type => :boolean, :default => false
   opt :env_prefix, "Prefix to detect list of ENV settings", :type => :string
-  opt :verbose, "Tell whats going on", :type => :boolean, :default => false
+  opt :verbose, "Tells whats going on", :type => :boolean, :default => false
 end
 
 module Donffer
